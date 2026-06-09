@@ -1,0 +1,18 @@
+import pandas as pd
+
+
+raw_data = {
+    'Employee': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Sales_USD': [5000, None, 7000, 4000]  # Bob's sales data is missing!
+}
+
+df = pd.DataFrame(raw_data)
+print("--- Raw Data with Missing Values ---")
+print(df)
+
+average_sales = df['Sales_USD'].mean()
+
+df['Sales_USD'] = df['Sales_USD'].fillna(average_sales)
+
+print("\n--- Cleaned Data (Fixed by Python) ---")
+print(df)
